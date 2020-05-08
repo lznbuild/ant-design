@@ -10,8 +10,9 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
 import { Omit, tuple } from '../_util/type';
 
-const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
+const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/; // 中文的正则表达式
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
+
 function isString(str: any) {
   return typeof str === 'string';
 }
