@@ -1,9 +1,10 @@
 /* eslint no-console:0 */
+// antd-list ==> AntdList  字符的大写转换
 function camelCase(name) {
   return name.charAt(0).toUpperCase() + name.slice(1).replace(/-(\w)/g, (m, n) => n.toUpperCase());
 }
 
-// Just import style for https://github.com/ant-design/ant-design/issues/3745
+// 导出所有style/index.ts或index.tsx的文件
 const req = require.context('./components', true, /^\.\/[^_][\w-]+\/style\/index\.tsx?$/);
 
 req.keys().forEach(mod => {
@@ -12,6 +13,7 @@ req.keys().forEach(mod => {
     v = v.default;
   }
   const match = mod.match(/^\.\/([^_][\w-]+)\/index\.tsx?$/);
+  // 导出compoent下的index.jsx文件
   if (match && match[1]) {
     if (match[1] === 'message' || match[1] === 'notification') {
       // message & notification should not be capitalized
@@ -22,4 +24,5 @@ req.keys().forEach(mod => {
   }
 });
 
+// TODO:导出一个commjs规范导入的东西，为什么要这样搞？
 module.exports = require('./components');

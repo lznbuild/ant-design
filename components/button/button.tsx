@@ -304,6 +304,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
   };
 
   render() {
+    // TODO:做了个全局注入？
     return <ConfigConsumer>{this.renderButton}</ConfigConsumer>;
   }
 }
