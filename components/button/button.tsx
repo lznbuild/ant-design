@@ -17,7 +17,7 @@ function isString(str: any) {
   return typeof str === 'string';
 }
 
-// Insert one space between two chinese characters automatically.
+// TODO:这里两个汉字的情况下中间加了一个空格,不知道为啥这样搞，是设计？？
 function insertSpace(child: React.ReactChild, needInserted: boolean) {
   // Check the child if is undefined or null.
   if (child == null) {
